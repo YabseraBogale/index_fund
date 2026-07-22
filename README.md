@@ -1,6 +1,6 @@
-# index_fund
+# Index Fund
 
-Core Buying Methods Used by BotsPassive Replication: 
+Core Buying Methods Used by Bots Passive Replication: 
   The bot does not try to pick winning stocks. 
   It buys broad market index funds (like an S&P 500 ETF)
   that hold a piece of every company in that index.
@@ -14,12 +14,13 @@ Dollar-Cost Averaging (DCA):
   It invests fixed amounts of money at regular times, 
   regardless of whether stock prices are high or low.
 
-Automated Maintenance MethodsAutomatic Rebalancing: 
+Automated Maintenance Methods Automatic Rebalancing: 
   The bot watches your target percentages. 
   If one stock index grows faster than the rest and ruins the target mix, 
   the bot sells a little of the high performer to buy the lower one.
 
-Fractional Shares: The bot uses fractional share trading. 
+Fractional Shares: 
+  The bot uses fractional share trading. 
   This lets your exact cash amount go to work immediately, 
   even if a full share of an index fund costs more than your deposit.
 
