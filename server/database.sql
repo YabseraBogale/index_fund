@@ -12,15 +12,10 @@ CREATE TABLE IF NOT EXISTS symbols (
             Name TEXT PRIMARY KEY,
             SharesOutstanding float
         )
-SELECT Name, DatePrice, Volume
-FROM TranscationtHistory
-WHERE Name = 'STOCK_NAME' 
-  AND DatePrice = 'YYYY-MM-DD';
 
 SELECT Name, DatePrice, SUM(Volume) AS TotalDailyVolume
 FROM TranscationtHistory
-WHERE Name = 'STOCK_NAME' 
-  AND DatePrice = 'YYYY-MM-DD'
+WHERE DatePrice = 'YYYY-MM-DD' BETWEEN 'YYYY-MM-DD'
 GROUP BY Name, DatePrice;
 
 SELECT * 
