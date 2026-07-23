@@ -8,10 +8,16 @@ create table if not exists TranscationtHistory(
     DatePrice date
   )
 
-CREATE TABLE IF NOT EXISTS symbols (
+CREATE TABLE IF NOT EXISTS Symbols (
             Name TEXT PRIMARY KEY,
             SharesOutstanding float
         )
+
+CREATE TABLE IF NOT EXISTS Account(
+    AcountID Integer PRIMARY KEY,
+    StartingMoney float not null,
+    BoughtDate date not null,
+)
 
 SELECT Name, DatePrice, SUM(Volume) AS TotalDailyVolume
 FROM TranscationtHistory
