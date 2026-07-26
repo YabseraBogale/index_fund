@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS Account(
     BoughtDate date not null,
 )
 
-SELECT Name, DatePrice, SUM(Volume) AS TotalDailyVolume
+SELECT Name,ClosePrice, SUM(Volume) AS TotalDailyVolume
 FROM TranscationtHistory
 WHERE DatePrice = '?' BETWEEN '?'
 GROUP BY Name, DatePrice;
