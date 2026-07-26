@@ -21,10 +21,10 @@ CREATE TABLE IF NOT EXISTS Account(
 
 SELECT Name, DatePrice, SUM(Volume) AS TotalDailyVolume
 FROM TranscationtHistory
-WHERE DatePrice = 'YYYY-MM-DD' BETWEEN 'YYYY-MM-DD'
+WHERE DatePrice = '?' BETWEEN '?'
 GROUP BY Name, DatePrice;
 
 SELECT * 
 FROM TranscationtHistory
-WHERE Name = 'STOCK_NAME'
-  AND DatePrice BETWEEN '2026-01-01' AND '2026-01-31';
+WHERE Name = '?'
+  AND DatePrice BETWEEN '?' AND '?';
