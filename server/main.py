@@ -1,4 +1,4 @@
-from os import stat_result
+from os import name, stat_result
 
 from flask import Flask,url_for,jsonify
 import sqlite3
@@ -16,6 +16,18 @@ def search_all(starting_date,end_date):
     GROUP BY Name, DatePrice;
     """
     pointer.execute(statment,(starting_date,end_date))
+    result=pointer.fetchall()
+    return jsonify(result)
+
+@app.route("/<name>")
+def search_name(name):
+    statment="""
+        SELECT * 
+        FROM TranscationtHistory
+        WHERE Name = '?'
+      AND DatePrice BETWEEN '?' AND '?';
+    """
+    pointer.execute(statment,(name))
     result=pointer.fetchall()
     return jsonify(result)
 
