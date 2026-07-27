@@ -6,17 +6,18 @@ create table if not exists TranscationtHistory(
     ClosePrice float,
     Volume float,
     DatePrice date
-  )
+)
 
 CREATE TABLE IF NOT EXISTS Symbols (
             Name TEXT PRIMARY KEY,
             SharesOutstanding float
-        )
+)
 
 CREATE TABLE IF NOT EXISTS Account(
     AcountID Integer PRIMARY KEY,
     StartingMoney float not null,
     BoughtDate date not null,
+    AllFee float not null 
 )
 
 SELECT Name,ClosePrice, SUM(Volume) AS TotalDailyVolume
