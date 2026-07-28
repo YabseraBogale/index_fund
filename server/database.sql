@@ -25,7 +25,7 @@ FROM TranscationtHistory
 WHERE DatePrice = '?' BETWEEN '?'
 GROUP BY Name, DatePrice;
 
-SELECT * 
+SELECT Sum(Volume) 
 FROM TranscationtHistory
 WHERE Name = '?'
   AND DatePrice BETWEEN '?' AND '?';
