@@ -1,6 +1,4 @@
-from os import name, stat_result
-
-from flask import Flask,url_for,jsonify
+from flask import Flask,jsonify
 import sqlite3
 
 app = Flask(__name__)
