@@ -43,3 +43,9 @@ WHERE Name = '?'
 SELECT SUM(Volume * ClosePrice)
 FROM TranscationtHistory
 
+
+SELECT SUM(Volume * ClosePrice)
+FROM TranscationtHistory
+WHERE DatePrice BETWEEN '?' AND '?';
+
+

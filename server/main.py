@@ -29,5 +29,26 @@ def search_name(name,starting_date,end_date):
     result=pointer.fetchall()
     return jsonify(result)
 
+@app.route("/total_transcation")
+def total_transcation():
+    statment="""
+        SELECT SUM(Volume * ClosePrice)
+        FROM TranscationtHistory
+    """
+    pointer.execute(statment)
+    result=pointer.fetchone()
+    return jsonify(result)
+
+@app.route("/total_transcation/<starting_date,ending_date>")
+def total_transcation_between_date(starting_date,ending_date):
+    statment="""      
+        SELECT SUM(Volume * ClosePrice)
+        FROM TranscationtHistory
+        WHERE DatePrice BETWEEN '?' AND '?';
+    """
+    pointer.execute(statment)
+    result=pointer.fetchone()
+    return jsonify(result)
+
 if __name__=="__main__":
     app.run(debug=True)
