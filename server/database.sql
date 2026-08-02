@@ -25,6 +25,11 @@ FROM TranscationtHistory
 WHERE DatePrice = '?' AND '?'
 GROUP BY Name, DatePrice;
 
+SELECT Sum(Volume) 
+FROM TranscationtHistory
+WHERE Name = '?'
+  AND DatePrice BETWEEN '?' AND '?';
+
 SELECT Name,SUM(Volume * ClosePrice) AS TotalDailyVolume
 FROM TranscationtHistory
 WHERE DatePrice = '?' AND '?'
@@ -35,8 +40,6 @@ FROM TranscationtHistory
 WHERE Name = '?'
   AND DatePrice BETWEEN '?' AND '?';
 
-
-SELECT Sum(Volume) 
+SELECT SUM(Volume * ClosePrice)
 FROM TranscationtHistory
-WHERE Name = '?'
-  AND DatePrice BETWEEN '?' AND '?';
+
