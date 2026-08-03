@@ -17,7 +17,7 @@ def search_all(starting_date,end_date):
     result=pointer.fetchall()
     return jsonify(result)
 
-@app.route("/name/<starting_date>/<end_date>")
+@app.route("/<name>/<starting_date>/<end_date>")
 def search_name(name,starting_date,end_date):
     statment="""
        SELECT Sum(Volume) 
@@ -46,7 +46,7 @@ def total_transcation_between_date(starting_date,ending_date):
         FROM TranscationtHistory
         WHERE DatePrice BETWEEN '?' AND '?';
     """
-    pointer.execute(statment)
+    pointer.execute(statment,(starting_date,ending_date))
     result=pointer.fetchone()
     return jsonify(result)
 
