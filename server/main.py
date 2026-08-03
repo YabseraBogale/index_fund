@@ -5,7 +5,7 @@ app = Flask(__name__)
 db = sqlite3.connect("database.db",check_same_thread=False)
 pointer = db.cursor()
 
-@app.route("/<starting_date,end_date>")
+@app.route("/<starting_date>/<end_date>")
 def search_all(starting_date,end_date):
     statment="""    
     SELECT Name,ClosePrice,SUM(Volume) AS TotalDailyVolume
@@ -17,7 +17,7 @@ def search_all(starting_date,end_date):
     result=pointer.fetchall()
     return jsonify(result)
 
-@app.route("/<name,starting_date,end_date>")
+@app.route("/name/<starting_date>/<end_date>")
 def search_name(name,starting_date,end_date):
     statment="""
        SELECT Sum(Volume) 
@@ -39,7 +39,7 @@ def total_transcation():
     result=pointer.fetchone()
     return jsonify(result)
 
-@app.route("/total_transcation/<starting_date,ending_date>")
+@app.route("/total_transcation/<starting_date>/<ending_date>")
 def total_transcation_between_date(starting_date,ending_date):
     statment="""      
         SELECT SUM(Volume * ClosePrice)
