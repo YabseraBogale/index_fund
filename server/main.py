@@ -8,7 +8,7 @@ pointer = db.cursor()
 @app.route("/<name>/<starting_date>/<end_date>")
 def search_name(name,starting_date,end_date):
     statment="""
-       SELECT Sum(Volume) 
+       SELECT * 
        FROM TranscationtHistory
        WHERE Name = '?'
        AND DatePrice BETWEEN '?' AND '?';
@@ -35,6 +35,19 @@ def total_transcation_between_date(starting_date,ending_date):
         WHERE DatePrice BETWEEN '?' AND '?';
     """
     pointer.execute(statment,(starting_date,ending_date))
+    result=pointer.fetchone()
+    return jsonify(result)
+
+@app.route("/posbd/<name>/<starting_date>/ending_date")
+def perctange_of_stock_between_data(name,starting_date,ending_date):
+    statment="""
+        SELECT 
+        (SUM(CASE WHEN Name = '?' THEN Volume * ClosePrice ELSE 0 END) 
+         / NULLIF(SUM(Volume * ClosePrice), 0)) * 100 AS AppPercentageShare
+        FROM TranscationtHistory
+        WHERE DatePrice BETWEEN '?' AND '?';
+    """
+    pointer.execute(statment,(name,starting_date,ending_date))
     result=pointer.fetchone()
     return jsonify(result)
 
