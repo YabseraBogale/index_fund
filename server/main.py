@@ -10,7 +10,7 @@ def search_all(starting_date,end_date):
     statment="""    
     SELECT Name,ClosePrice,SUM(Volume) AS TotalDailyVolume
     FROM TranscationtHistory
-    WHERE DatePrice = '?' BETWEEN '?'
+    WHERE DatePrice = '?' AND '?'
     GROUP BY Name, DatePrice;
     """
     pointer.execute(statment,(starting_date,end_date))
