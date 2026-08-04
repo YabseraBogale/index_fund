@@ -5,18 +5,6 @@ app = Flask(__name__)
 db = sqlite3.connect("database.db",check_same_thread=False)
 pointer = db.cursor()
 
-@app.route("/<starting_date>/<end_date>")
-def search_all(starting_date,end_date):
-    statment="""    
-    SELECT Name,ClosePrice,SUM(Volume) AS TotalDailyVolume
-    FROM TranscationtHistory
-    WHERE DatePrice = '?' AND '?'
-    GROUP BY Name, DatePrice;
-    """
-    pointer.execute(statment,(starting_date,end_date))
-    result=pointer.fetchall()
-    return jsonify(result)
-
 @app.route("/<name>/<starting_date>/<end_date>")
 def search_name(name,starting_date,end_date):
     statment="""
