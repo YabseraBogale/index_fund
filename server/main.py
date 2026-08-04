@@ -5,18 +5,6 @@ app = Flask(__name__)
 db = sqlite3.connect("database.db",check_same_thread=False)
 pointer = db.cursor()
 
-@app.route("/<name>/<starting_date>/<end_date>")
-def search_name(name,starting_date,end_date):
-    statment="""
-       SELECT * 
-       FROM TranscationtHistory
-       WHERE Name = '?'
-       AND DatePrice BETWEEN '?' AND '?';
-    """
-    pointer.execute(statment,(name,starting_date,end_date))
-    result=pointer.fetchall()
-    return jsonify(result)
-
 @app.route("/total_transcation")
 def total_transcation():
     statment="""
