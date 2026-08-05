@@ -20,32 +20,12 @@ CREATE TABLE IF NOT EXISTS Account(
     AllFee float not null 
 )
 
-SELECT Name, ClosePrice, SUM(Volume) AS TotalDailyVolume
+SELECT 
+    Name,
+    SUM(Volume * ClosePrice) AS StockVolume,
+    (SUM(Volume * ClosePrice) / SUM(SUM(Volume * ClosePrice)) OVER()) * 100 AS PercentageShare
 FROM TranscationtHistory
-WHERE DatePrice = '?' AND '?'
-GROUP BY Name, DatePrice;
-
-SELECT Sum(Volume) 
-FROM TranscationtHistory
-WHERE Name = '?'
-  AND DatePrice BETWEEN '?' AND '?';
-
-SELECT Name,SUM(Volume * ClosePrice) AS TotalDailyVolume
-FROM TranscationtHistory
-WHERE DatePrice = '?' AND '?'
-GROUP BY Name, DatePrice;
-
-SELECT Sum(Volume * ClosePrice) 
-FROM TranscationtHistory
-WHERE Name = '?'
-  AND DatePrice BETWEEN '?' AND '?';
-
-SELECT SUM(Volume * ClosePrice)
-FROM TranscationtHistory
-
-
-SELECT SUM(Volume * ClosePrice)
-FROM TranscationtHistory
-WHERE DatePrice BETWEEN '?' AND '?';
-
+WHERE DatePrice BETWEEN '2021-02-03' AND '2022-02-03'
+GROUP BY Name
+ORDER BY PercentageShare DESC;
 

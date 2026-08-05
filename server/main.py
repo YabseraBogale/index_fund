@@ -1,4 +1,4 @@
-from flask import Flask,jsonify
+from flask import Flask,jsonify,render_template
 import sqlite3
 
 app = Flask(__name__)
@@ -38,6 +38,10 @@ def perctange_of_stock_between_data(name,starting_date,ending_date):
     pointer.execute(statment,(name,starting_date,ending_date))
     result=pointer.fetchone()
     return jsonify(result)
+
+@app.route("/price_proportional_distribution")
+def price_proportional_distribution():
+    return render_template("price_proportional_distribution.html") 
 
 if __name__=="__main__":
     app.run(debug=True)
