@@ -8,18 +8,6 @@ create table if not exists TranscationtHistory(
     DatePrice date
 )
 
-CREATE TABLE IF NOT EXISTS Symbols (
-            Name TEXT PRIMARY KEY,
-            SharesOutstanding float
-)
-
-CREATE TABLE IF NOT EXISTS Account(
-    AcountID Integer PRIMARY KEY,
-    StartingMoney float not null,
-    BoughtDate date not null,
-    AllFee float not null 
-)
-
 SELECT 
     Name,
     SUM(Volume * ClosePrice) AS StockVolume,
@@ -29,3 +17,18 @@ WHERE DatePrice BETWEEN '2021-02-03' AND '2022-02-03'
 GROUP BY Name
 ORDER BY PercentageShare DESC;
 
+CREATE TABLE IF NOT EXISTS Transcationt(
+    Symbol TEXT PRIMARY KEY,
+    Name text NOT Null,
+    SharePrice Float NOT Null,
+    PublicShares Integer NOT Null,
+    ClosedShares Integer NOT Null,
+    TotalShares Integer NOT Null
+)
+
+CREATE TABLE IF NOT EXISTS Account(
+    AcountID Integer PRIMARY KEY,
+    StartingMoney float not null,
+    BoughtDate date not null,
+    AllFee float not null 
+)
