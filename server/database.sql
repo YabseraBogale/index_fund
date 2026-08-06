@@ -1,4 +1,4 @@
-create table if not exists TranscationtHistory(
+create table IF NOT EXISTS TranscationtHistory(
     Symbol text References Transcation,
     OpenPrice float,
     LowPrice float,
@@ -23,7 +23,6 @@ CREATE TABLE IF NOT EXISTS Account(
     BoughtDate date not null,
     AllFee float not null 
 )
-
 
 SELECT 
     Name,
