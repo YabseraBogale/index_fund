@@ -1,16 +1,16 @@
 create table IF NOT EXISTS TranscationtHistory(
-    Symbol text References Transcation,
-    OpenPrice float,
-    LowPrice float,
-    HighPrice float,
-    ClosePrice float,
-    Volume float,
-    DatePrice date
+    Symbol Text References Transcation,
+    OpenPrice Float,
+    LowPrice Float,
+    HighPrice Float,
+    ClosePrice Float,
+    Volume Float,
+    DatePrice Date
 )
 
 CREATE TABLE IF NOT EXISTS Transcation(
     Symbol TEXT PRIMARY KEY,
-    Name text NOT Null,
+    Name Text NOT Null,
     SharePrice Float NOT Null,
     PublicShares Integer NOT Null,
     ClosedShares Integer NOT Null,
@@ -19,9 +19,17 @@ CREATE TABLE IF NOT EXISTS Transcation(
 
 CREATE TABLE IF NOT EXISTS Account(
     AcountID Integer PRIMARY KEY,
-    StartingMoney float not null,
-    BoughtDate date not null,
+    StartingMoney Float NOT Null,
+    TotalValue Float NOT Null,
     AllFee float not null 
+)
+
+CREATE TABLE IF NOT EXISTS BuyOrder(
+    Symbol Text References Transcation,
+    AcountID Integer References Account,
+    NumberOfShares Integer NOT Null,
+    BoughtPrice Float NOT Null,
+    BoughtDate Date Not Null
 )
 
 SELECT 
