@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS Account(
 );
 
 CREATE TABLE IF NOT EXISTS BuyOrder(
-    Symbol Text References Transcation,
+    Symbol Text References Company,
     AcountID Integer References Account,
     NumberOfShares Integer NOT Null,
     BoughtPrice Float NOT Null,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS BuyOrder(
 );
 
 CREATE TABLE IF NOT EXISTS SellOrder(
-    Symbol Text References Transcation,
+    Symbol Text References Company,
     AcountID Integer References Account,
     NumberOfShares Integer NOT Null,
     SellPrice Float NOT Null,
