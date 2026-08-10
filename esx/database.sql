@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS Company(
     Symbol Text PRIMARY KEY,
-    Name Text Not Null,
+    CompanyName Text Not Null,
     PublicShare Integer Not Null,
     ClosedShare Integer Not Null,
     SharePrice Float Not Null
@@ -31,48 +31,48 @@ CREATE TABLE IF NOT EXISTS SellOrder(
 
 Insert Into Company(
 	Symbol,
-	Name,
+	CompanyName,
 	PublicShare,
 	ClosedShare,
 	SharePrice
 ) values(
-	"TELE",
-	"Ethio Telecom",
+	'TELE',
+	'Ethio Telecom',
 	10700000,
 	89300000,
 	463
 ),
 (
-	"BOAX",
-	"Bank of Abyssinia",
+	'BOAX',
+	'Bank of Abyssinia',
 	17481120,
 	0,
 	2000
 ),
 (
-	"AWAB",
-	"Awash Bank",
+	'AWAB',
+	'Awash Bank',
 	54066089,
 	0,
 	2500
 ),
 (
-	"GDAB",
-	"Gadaa Bank",
+	'GDAB',
+	'Gadaa Bank',
 	1232728,
 	0,
 	1397
 ),
 (
-	"WGBX",
-	"Wegagen Bank",
+	'WGBX',
+	'Wegagen Bank',
 	10094666,
 	0,
 	1356
 ),
 (
-	"ABAYB",
-	"Abay Bank",
+	'ABAYB',
+	'Abay Bank',
 	9657286,
 	0,
 	1663
