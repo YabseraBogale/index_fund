@@ -28,3 +28,53 @@ CREATE TABLE IF NOT EXISTS SellOrder(
     SellPrice Float NOT Null,
     SoldDate Date Not Null
 );
+
+Insert Into Company(
+	Symbol,
+	Name,
+	PublicShare,
+	ClosedShare,
+	SharePrice
+) values(
+	"TELE",
+	"Ethio Telecom",
+	10700000,
+	89300000,
+	463
+),
+(
+	"BOAX",
+	"Bank of Abyssinia",
+	17481120,
+	0,
+	2000
+),
+(
+	"AWAB",
+	"Awash Bank",
+	54066089,
+	0,
+	2500
+),
+(
+	"GDAB",
+	"Gadaa Bank",
+	1232728,
+	0,
+	1397
+),
+(
+	"WGBX",
+	"Wegagen Bank",
+	10094666,
+	0,
+	1356
+),
+(
+	"ABAYB",
+	"Abay Bank",
+	9657286,
+	0,
+	1663
+);
+
