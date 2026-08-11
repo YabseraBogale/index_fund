@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS Company(
 );
 
 CREATE TABLE IF NOT EXISTS Account(
-    AcountID Integer PRIMARY KEY,
+    AccountID Integer PRIMARY KEY,
     StartingMoney Float NOT Null,
     TotalValue Float NOT Null,
     AllFee Float Not Null 
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS Account(
 
 CREATE TABLE IF NOT EXISTS BuyOrder(
     Symbol Text References Company,
-    AcountID Integer References Account,
+    AccountID Integer References Account,
     NumberOfShares Integer NOT Null,
     BoughtPrice Float NOT Null,
     BoughtDate Date Not Null
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS BuyOrder(
 
 CREATE TABLE IF NOT EXISTS SellOrder(
     Symbol Text References Company,
-    AcountID Integer References Account,
+    AccountID Integer References Account,
     NumberOfShares Integer NOT Null,
     SellPrice Float NOT Null,
     SoldDate Date Not Null
