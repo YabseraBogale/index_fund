@@ -70,4 +70,6 @@ Insert Into Company(
 	1663
 );
 
+select * from company 
+
 
