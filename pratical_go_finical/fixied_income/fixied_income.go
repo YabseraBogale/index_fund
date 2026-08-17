@@ -1,4 +1,4 @@
-package algorithim
+package fixied_income
 
 import "math"
 
